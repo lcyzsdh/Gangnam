@@ -1,9 +1,9 @@
 package lcyzsdh.gangnam;
 
 import lcyzsdh.gangnam.init.CommonInit;
+import lcyzsdh.gangnam.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -22,13 +22,15 @@ public class Gangnam {
         @Nonnull
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Items.APPLE);
+            return new ItemStack(ModItems.BAYBERRY.get());
         }
     };
     public Gangnam(){
-
         final IEventBus modEventBus= FMLJavaModLoadingContext.get().getModEventBus();
+
         modEventBus.addListener(CommonInit::init);
+        ModItems.ITEMS.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 }
