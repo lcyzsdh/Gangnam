@@ -15,8 +15,8 @@ public class ModDataGenerator {
         ExistingFileHelper fileHelper=event.getExistingFileHelper();
 
         generator.addProvider(event.includeClient(), new ModZhLanguageProvider(generator,Gangnam.MOD_ID,"zh_cn"));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(generator,Gangnam.MOD_ID,fileHelper));
         generator.addProvider(event.includeClient(),new ModItemModelProvider(generator,Gangnam.MOD_ID,fileHelper));
-        //generator.addProvider(event.includeClient(), new ModBlockStateProvider(generator,Gangnam.MOD_ID,fileHelper));
-        //generator.addProvider();
+        generator.addProvider(event.includeServer(),new ModBlockTagsProvider(generator,Gangnam.MOD_ID,fileHelper));
     }
 }

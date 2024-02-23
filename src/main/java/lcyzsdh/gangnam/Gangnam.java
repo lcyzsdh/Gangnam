@@ -1,6 +1,7 @@
 package lcyzsdh.gangnam;
 
 import lcyzsdh.gangnam.init.CommonInit;
+import lcyzsdh.gangnam.registry.ModBlocks;
 import lcyzsdh.gangnam.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -30,6 +31,7 @@ public class Gangnam {
 
         modEventBus.addListener(CommonInit::init);
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
